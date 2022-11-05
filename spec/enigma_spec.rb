@@ -1,0 +1,38 @@
+require 'date'
+require './lib/enigma'
+
+RSpec.describe Enigma do
+  describe 'initialize' do
+    it 'exists and has readable attributes' do
+    enigma = Enigma.new
+    end
+  end
+
+  xdescribe '#encrypt' do
+    it 'can encrypt a message with a key and date' do
+      enigma = Enigma.new
+      expect(enigma.encrypt("hello world", "02715", "040895")). to eq({
+        encryption: "keder ohulw",
+        key: "02715",
+        offset: "040895"
+      })
+      # encrypt a message with a key (uses today's date)
+      expect(encrypted = enigma.encrypt("hello world", "02715")).to eq(Hash)
+      # encrypt a message (generates random key and uses today's date)
+      expect(enigma.encrypt("hello world")).to eq(Hash)
+    end
+  end
+
+  xdescribe '#decrypt' do
+    it 'can decrypt a message with a key and date' do
+      enigma = Enigma.new
+      expect(enigma.decrypt("keder ohulw", "02715", "040895")).to eq({
+        decryption: "hello world",
+        key: "02715",
+        offset: "040895"
+      })
+      #decrypt a message with a key (uses today's date)
+      expect(enigma.decrypt(encrypted[:encryption], "02715")).to eq(Hash)
+    end
+  end
+end
