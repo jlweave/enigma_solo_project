@@ -1,6 +1,7 @@
 require './lib/key'
 require './lib/offset'
 require './lib/enigma'
+require './lib/shift_final'
 
 RSpec.describe ShiftFinal do
   before (:each) do

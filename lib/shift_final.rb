@@ -1,11 +1,13 @@
 require './key'
-require '.offset'
+require './offset'
 
 class ShiftFinal
   attr_reader :key,
-              :offset
+              :offset,
+              :alphabet
 
   def initialize(key, offset)
+    @alphabet = ("a".."z").to_a << " "
     @key = key
     @offset = offset
   end
