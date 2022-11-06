@@ -1,17 +1,12 @@
 require 'date'
 class Offset
   
-  def initialize(date)
-    @date = DateTime.now
-    @offset = []
+  def self.current_time
+    DateTime.now.strftime("%d%m%y")
   end
 
-  def current_time
-    @date.strftime("%d%m%y")
-  end
-
-  def square()
+  def self.square
     square_num = (current_time.to_i)**2
-    @offset = square_num.to_s[-4..-1]
+    square_num.to_s[-4..-1]
   end
 end
