@@ -3,19 +3,13 @@ require './lib/enigma'
 
 RSpec.describe Key do
   before (:each) do
-    @key = Key.new
-  end
-
-  describe '#initialize' do
-    it 'exists and has readable attributes' do
-      expect(@key).to be_a(Key)
-    end
+    @key = Key.randomizer
   end
 
   describe '#randomizer' do
     it 'give five random numbers' do
-      expect(@key.randomizer).to be_a String
-      expect(@key.randomizer.length).to eq(5)
+      expect(@key).to be_a String
+      expect(@key.length).to eq(5)
     end
   end
 end
