@@ -5,10 +5,11 @@ class Enigma
   end
 
   def encrypt(message, key, offset)
-    shift = Shift.new(key, offset)
-    # return_hash = {encryption: ,
-    #     key: "02715",
-    #     offset: "040895"}
+    encrypt_message = Encrypt.new.e_message(message, key, offset)
+    return_hash = {
+        message: e_message,
+        key: key,
+        offset: offset}
   end
 
   def decrypt()

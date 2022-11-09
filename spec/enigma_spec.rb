@@ -1,5 +1,8 @@
 require 'date'
+require './lib/key'
+require './lib/offset'
 require './lib/enigma'
+require './lib/shift_final'
 
 RSpec.describe Enigma do
   describe 'initialize' do
