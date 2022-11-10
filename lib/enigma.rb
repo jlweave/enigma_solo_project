@@ -1,18 +1,44 @@
+require './offset'
+require './key'
+require'./shift_final'
+
 class Enigma
 
-  def initialize
+  # def initialize
 
+  # end
+  def once_around(index)
+    index >= 27 ? (index %27) : index
+  end
+
+  def check_shift_index(index)
+    index > 3 ? (index %4) : index
+  end
+
+  def change_method(message, key, offset = Offset.current_time)
+    e_message = ShiftFinal.new(key, offset)
+    shift_array = e_message.shift_final_key.values
+    new_message = []
+    message.split("").to_a.each_with_index do |word, index|
+      shift_index = check_shift_index(index)
+      first_index = (e_message.alphabet.index(word) + (shift_array[shift_index]) %27)
+        new_index = once_around(first_index)
+        new_char = e_message.alphabet[new_index]
+        new_message << new_char
+        # require 'pry'; binding.pry
+    end
+    new_message.join
   end
 
   def encrypt(message, key, offset)
-    encrypt_message = Encrypt.new.e_message(message, key, offset)
+    encrypt_message = change_method(message, key, offset)
     return_hash = {
-        message: e_message,
+       encryption: encrypt_message,
         key: key,
         offset: offset}
   end
 
-  def decrypt()
+  # def decrypt()
 
-  end
+  # end
 end
