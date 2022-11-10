@@ -9,7 +9,8 @@ class ShiftFinal
   def initialize(key, offset)
     @alphabet = ("a".."z").to_a << " "
     @key = key
-    @offset = offset
+    @offset = Offset.square(offset)
+   
   end
 
   def a_key
