@@ -6,6 +6,7 @@ class Offset
   end
 
   def self.square(conditional = current_time.to_i)
+    # require 'pry'; binding.pry
     square_num = (conditional).to_i**2
     square_num.to_s[-4..-1]
   end
