@@ -3,11 +3,6 @@ require './key'
 require'./shift_final'
 
 class Enigma
-  # attr_accessor :key, :offset
-  # def initialize(key = nil, offset = nil)
-  #   @key = key
-  #   @offset = offset
-  # end
 
   def once_around(index)
     index >= 27 ? (index %27) : index

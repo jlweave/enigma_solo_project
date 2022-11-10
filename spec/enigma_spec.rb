@@ -11,6 +11,18 @@ RSpec.describe Enigma do
     end
   end
 
+  context "#helper methods" do
+    it "checks the index that are above 27" do
+      enigma = Enigma.new
+      expect(enigma.once_around).to be_a(Integer)
+    end
+
+    it 'resets the index' do
+      enigma = Enigma.new
+      expect(enigma.check_shift_index).to be_a(Integer)
+    end
+  end
+
   describe '#encrypt' do
     it 'can encrypt a message with a key and date' do
       enigma = Enigma.new
