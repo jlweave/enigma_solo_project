@@ -22,7 +22,6 @@ class Enigma
         new_index = once_around(first_index)
         new_char = e_message.alphabet[new_index]
         new_message << new_char
-        # require 'pry'; binding.pry
     end
     new_message.join
   end
@@ -45,7 +44,6 @@ class Enigma
         new_index = once_around(first_index)
         new_char = e_message.alphabet[new_index]
         new_message << new_char
-        # require 'pry'; binding.pry
     end
     new_message.join
   end
@@ -57,6 +55,5 @@ class Enigma
       key: key,
       offset: offset
     }
-# require 'pry'; binding.pry
   end
 end
