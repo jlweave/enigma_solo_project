@@ -1,6 +1,6 @@
-require './offset'
-require './key'
-require'./shift_final'
+require_relative 'offset'
+require_relative 'key'
+require_relative 'shift_final'
 
 class Enigma
 
@@ -12,7 +12,7 @@ class Enigma
     index > 3 ? (index %4) : index
   end
 
-  def change_method(message, key = Key.randomizer, offset = Offest.current_time)
+  def change_method(message, key = Key.randomizer, offset = Offset.current_time)
     e_message = ShiftFinal.new(key, offset)
     shift_array = e_message.shift_final_key.values
     new_message = []
@@ -22,13 +22,12 @@ class Enigma
         new_index = once_around(first_index)
         new_char = e_message.alphabet[new_index]
         new_message << new_char
-        # require 'pry'; binding.pry
     end
     new_message.join
   end
 
   def encrypt(message, key = Key.randomizer, offset = Offset.current_time)
-    encrypt_message = change_method(message, optional_2 = key,optional_1 = offset)
+    encrypt_message = change_method(message.downcase, optional_2 = key,optional_1 = offset)
     return_hash = {
        encryption: encrypt_message,
         key: key,

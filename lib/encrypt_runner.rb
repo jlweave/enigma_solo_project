@@ -1,38 +1,14 @@
-require "./enigma.rb"
+require_relative 'enigma'
 
-class EncryptRunner
-  attr_reader :file
 
-  def reader_file(message)
-    encrypted_file = File.open(ARGV[0], "r")
-    encrypt_message = encrypted_file.read
-    encrypted_file.close
-  end
+read_file = ARGV[0].dup.prepend('./lib/')
+write_file = ARGV[1].dup.prepend('./lib/')
 
-  def file_writer(message)
-    enigma = Enigma.new
-    file = File.open(ARGV[0], "r")
-    message_txt = file.read
-    message = enigma.encrypt(message_txt)
-    file = File.open(ARGV[1], "w")
-    file.write(message)
-    puts "something #{ARGV[1]} key:#{message.length}, something something"
-    file.close
-  end
-  
+enigma = Enigma.new
 
-  # handle = File.open(ARGV[0], "r")
-  # incoming_text = handle.read
-  # handle.close
-  # capitalized_text = incoming_text.upcase
-  # writer = File.open(ARGV[1], "w")
-  # writer.write(capitalized_text)
-  # writer.close
-end
-#  File.write(ARGV[1], content)
+encrypted = enigma.encrypt(File.read(read_file))
+File.write(write_file, encrypted[:encryption])
+puts "something something something"
 
-    # puts "how am I suppose to get the keyyyy"
 
-encrypt_runner = EncryptRunner.new
-encrypt_runner.reader_file(ARGV[0])
-encrypt_runner.file_writer(ARGV[1])
+
