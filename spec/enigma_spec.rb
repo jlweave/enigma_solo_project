@@ -11,18 +11,13 @@ RSpec.describe Enigma do
     end
   end
 
-  xcontext "#helper methods" do
-    it "checks the index that are above 27" do
+  describe '#change_method' do
+    it 'can take the shift key and return the correct letters' do
       enigma = Enigma.new
-      expect(enigma.once_around).to be_a(Integer)
-    end
-
-    it 'resets the index' do
-      enigma = Enigma.new
-      expect(enigma.check_shift_index).to be_a(Integer)
+      expect(enigma.change_method("hello world", "02715", "040895")).to be_a(String)
     end
   end
-
+  
   describe '#encrypt' do
     it 'can encrypt a message with a key and date' do
       enigma = Enigma.new
@@ -38,6 +33,13 @@ RSpec.describe Enigma do
     end
   end
 
+  describe '#method_change' do
+    it 'can take the shift key and return the correct letters' do
+      enigma = Enigma.new
+      expect(enigma.method_change("keder ohulw", "02715", "040895")).to be_a(String)
+    end
+  end
+
   describe '#decrypt' do
     it 'can decrypt a message with a key and date' do
       enigma = Enigma.new
@@ -47,7 +49,7 @@ RSpec.describe Enigma do
         offset: "040895"
       })
       #decrypt a message with a key (uses today's date)
-      expect(enigma.decrypt(encrypted[:encryption], "02715")).to be_a(Hash)
+      expect(enigma.decrypt("keder ohulw", "02715")).to be_a(Hash)
     end
   end
 

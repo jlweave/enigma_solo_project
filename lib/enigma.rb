@@ -57,6 +57,6 @@ class Enigma
       key: key,
       offset: offset
     }
-require 'pry'; binding.pry
+# require 'pry'; binding.pry
   end
 end
