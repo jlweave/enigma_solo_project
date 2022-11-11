@@ -11,7 +11,7 @@ RSpec.describe Enigma do
     end
   end
 
-  context "#helper methods" do
+  xcontext "#helper methods" do
     it "checks the index that are above 27" do
       enigma = Enigma.new
       expect(enigma.once_around).to be_a(Integer)
@@ -38,7 +38,7 @@ RSpec.describe Enigma do
     end
   end
 
-  xdescribe '#decrypt' do
+  describe '#decrypt' do
     it 'can decrypt a message with a key and date' do
       enigma = Enigma.new
       expect(enigma.decrypt("keder ohulw", "02715", "040895")).to eq({
@@ -47,7 +47,7 @@ RSpec.describe Enigma do
         offset: "040895"
       })
       #decrypt a message with a key (uses today's date)
-      expect(enigma.decrypt(encrypted[:encryption], "02715")).to eq(Hash)
+      expect(enigma.decrypt(encrypted[:encryption], "02715")).to be_a(Hash)
     end
   end
 
