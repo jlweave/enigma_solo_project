@@ -35,7 +35,13 @@ class Enigma
         offset: offset}
   end
 
-  # def decrypt()
+  def decrypt(message, key = Key.randomizer, offset = Offest.current_time)
+    decrypt_message =  change_method(message, optional_2 = key, optional_1 = offset)
+    hash_return = {
+      decryption: decrypt_message
+      key: key,
+      offset: offset
+    }
 
-  # end
+  end
 end
