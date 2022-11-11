@@ -51,5 +51,12 @@ class ShiftFinal
      "C_shift" => c_offset.to_i + c_key.to_i,
      "D_shift" => d_offset.to_i + d_key.to_i}
   end
+  def shift_final_key_decrypt
+
+    {"A_shift" => (a_offset.to_i + a_key.to_i).-@,
+     "B_shift" => (b_offset.to_i + b_key.to_i).-@,
+     "C_shift" => (c_offset.to_i + c_key.to_i).-@,
+     "D_shift" => (d_offset.to_i + d_key.to_i).-@}
+  end
 
 end
