@@ -1,11 +1,14 @@
-require './lib/enigma'
+require_relative 'enigma'
 
-#reading the file 
-handle = File.open(ARGV[0], "r")
-#message to be encrypted
-incoming_text = handle.read
-handle.close
-#return e_message
-writer = File.open(ARGV[1], "w")
-#write to new file and output to terminal
-writer.write()
+
+read_file = ARGV[0].dup.prepend('./lib/')
+write_file = ARGV[1].dup.prepend('./lib/')
+
+enigma = Enigma.new
+
+encrypted = enigma.encrypt(File.read(read_file))
+File.write(write_file, encrypted[:encryption])
+puts "something something something"
+
+
+

@@ -1,5 +1,5 @@
-require './key'
-require './offset'
+require_relative'key'
+require_relative 'offset'
 
 class ShiftFinal
   attr_reader :key,

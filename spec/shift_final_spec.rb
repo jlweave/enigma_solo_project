@@ -17,4 +17,9 @@ RSpec.describe ShiftFinal do
     end
   end
 
+  describe "#shift_final_key"
+  it "can return a string of numbers" do
+    expect(@shift_final.shift_final_key).to be_a(Hash)
+  end
+
 end
