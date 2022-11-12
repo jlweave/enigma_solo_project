@@ -6,6 +6,6 @@ write_file = ARGV[1].dup.prepend('./lib/')
 
 enigma = Enigma.new
 
-encrypted = enigma.encrypt(File.read(read_file))
-File.write(write_file, encrypted[:encryption])
-puts "something something something"
+decrypted = enigma.encrypt(File.read(read_file))
+File.write(write_file, decrypted[:decryption])
+# puts "Created #{ARGV[1]} with the key #{encrypted[:key]} and date #{encrypted[:date]}"
