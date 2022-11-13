@@ -26,9 +26,7 @@ RSpec.describe Enigma do
         key: "02715",
         offset: "040895"
       })
-      # encrypt a message with a key (uses today's date)
       expect(encrypted = enigma.encrypt("hello world", "02715")).to be_a(Hash)
-      # encrypt a message (generates random key and uses today's date)
       expect(enigma.encrypt("hello world")).to be_a(Hash)
     end
   end
@@ -48,7 +46,6 @@ RSpec.describe Enigma do
         key: "02715",
         offset: "040895"
       })
-      #decrypt a message with a key (uses today's date)
       expect(enigma.decrypt("keder ohulw", "02715")).to be_a(Hash)
     end
   end
