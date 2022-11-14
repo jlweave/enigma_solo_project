@@ -24,19 +24,19 @@ Finally using these keys (02, 27, 71, 15) and offsets (1, 0, 2, 5), they are add
 
 
 ## Self Evalutation
-0.00/3
+3/3
 Functionality - Enigma Class with encrypt and decrypt methods successfully implemented. Encrypt/decrypt command line interfaces successfully implemented.
 
-0.00/3
+2.5/3
 Object Oriented Programming - Project is broken into logical components that are appropriately encapsulated. No classes are unreasonably small or large, or contain knowledge/information/behavior that they shouldn’t know about. Student can articulate the single responsibilities of the various components.
 
-0.00/3
+3/3
 Ruby Conventions and Mechanics - Code is mostly properly indented, spaced, and lines are not excessively long. Class, method, variable, and file names follow convention. Some enumerables/data structures chosen are the most efficient tool for a given job, and students can speak as to why those enumerables/data structures were chosen. At least one hash is implemented in a way that makes logical sense.
 
-0.00/3 
+2.5/3 
 Test Driven Development - Every method is tested at both the unit and integration level, and completely verify expected behavior (i.e., if a single method does 3 things, all 3 things are explicitly tested). Obvious edge cases are addressed. git history demonstrates students are writing tests before implementation code. Test coverage metrics show coverage at 99% or greater.
 
-0.00/4
+2.5/3
 Version Control - Minimum 30 commits and 3 pull requests. More than half of your pull requests include related and logical chunks of functionality, and are named and documented to clearly communicate the purpose of the pull request. No more than 3 commits include multiple pieces of functionality.
 
-Minimum 40 commits and 4 pull requests. All pull requests include related and logical chunks of functionality, and are named and documented to clearly communicate the purpose of the pull request. No commits include multiple pieces of functionality.
+total 2.7
