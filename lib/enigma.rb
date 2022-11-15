@@ -17,11 +17,15 @@ class Enigma
     shift_array = e_message.shift_final_key.values
     new_message = []
     message.split("").to_a.each_with_index do |word, index|
+       if !e_message.alphabet.include?(word)
+        new_message << word
+      else
       shift_index = check_shift_index(index)
       first_index = (e_message.alphabet.index(word) + (shift_array[shift_index]) %27)
         new_index = once_around(first_index)
         new_char = e_message.alphabet[new_index]
         new_message << new_char
+      end
     end
     new_message.join
   end
@@ -39,11 +43,15 @@ class Enigma
     shift_array = e_message.shift_final_key_decrypt.values
     new_message = []
     message.split("").to_a.each_with_index do |word, index|
+       if !e_message.alphabet.include?(word)
+        new_message << word
+      else
       shift_index = check_shift_index(index)
       first_index = (e_message.alphabet.index(word) + (shift_array[shift_index]) %27)
         new_index = once_around(first_index)
         new_char = e_message.alphabet[new_index]
         new_message << new_char
+      end
     end
     new_message.join
   end
